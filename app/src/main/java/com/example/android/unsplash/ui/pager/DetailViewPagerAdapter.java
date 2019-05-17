@@ -1,14 +1,12 @@
 package com.example.android.unsplash.ui.pager;
 
 import android.app.Activity;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.android.unsplash.R;
 import com.example.android.unsplash.data.model.Photo;
 import com.example.android.unsplash.databinding.DetailViewBinding;
@@ -16,6 +14,10 @@ import com.example.android.unsplash.ui.DetailSharedElementEnterCallback;
 import com.example.android.unsplash.ui.ImageSize;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.viewpager.widget.PagerAdapter;
 
 /**
  * Adapter for paging detail views.
@@ -57,8 +59,9 @@ public class DetailViewPagerAdapter extends PagerAdapter {
     private void onViewBound(DetailViewBinding binding) {
         Glide.with(host)
                 .load(binding.getData().getPhotoUrl(photoWidth))
-                .placeholder(R.color.placeholder)
-                .override(ImageSize.NORMAL[0], ImageSize.NORMAL[1])
+                .apply(new RequestOptions()
+                               .placeholder(R.color.placeholder)
+                               .override(ImageSize.NORMAL[0], ImageSize.NORMAL[1]))
                 .into(binding.photo);
     }
 

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,6 +17,8 @@ import com.example.android.unsplash.databinding.PhotoItemBinding;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import androidx.annotation.NonNull;
 
 public class DetailSharedElementEnterCallback extends SharedElementCallback {
 

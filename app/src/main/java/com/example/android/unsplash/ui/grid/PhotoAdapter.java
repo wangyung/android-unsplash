@@ -17,19 +17,21 @@
 package com.example.android.unsplash.ui.grid;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.android.unsplash.R;
 import com.example.android.unsplash.data.model.Photo;
 import com.example.android.unsplash.databinding.PhotoItemBinding;
 import com.example.android.unsplash.ui.ImageSize;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
 
@@ -46,7 +48,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
     @Override
     public PhotoViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         return new PhotoViewHolder((PhotoItemBinding) DataBindingUtil.inflate(layoutInflater,
-                R.layout.photo_item, parent, false));
+                                                                              R.layout.photo_item,
+                                                                              parent, false));
     }
 
     @Override
@@ -56,10 +59,11 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
         binding.setData(data);
         binding.executePendingBindings();
         Glide.with(layoutInflater.getContext())
-                .load(holder.getBinding().getData().getPhotoUrl(requestedPhotoWidth))
-                .placeholder(R.color.placeholder)
-                .override(ImageSize.NORMAL[0], ImageSize.NORMAL[1])
-                .into(holder.getBinding().photo);
+             .load(holder.getBinding().getData().getPhotoUrl(requestedPhotoWidth))
+             .apply(new RequestOptions()
+                            .placeholder(R.color.placeholder)
+                            .override(ImageSize.NORMAL[0], ImageSize.NORMAL[1]))
+             .into(holder.getBinding().photo);
     }
 
     @Override

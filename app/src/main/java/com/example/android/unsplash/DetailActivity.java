@@ -19,7 +19,6 @@ package com.example.android.unsplash;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.transition.Fade;
 import android.transition.Slide;
 import android.transition.TransitionSet;
@@ -33,6 +32,8 @@ import com.example.android.unsplash.ui.DetailSharedElementEnterCallback;
 import com.example.android.unsplash.ui.pager.DetailViewPagerAdapter;
 
 import java.util.ArrayList;
+
+import androidx.viewpager.widget.ViewPager;
 
 public class DetailActivity extends Activity {
 

@@ -18,9 +18,10 @@ package com.example.android.unsplash.data.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
 
 /**
  * Model class representing data returned from unsplash.it

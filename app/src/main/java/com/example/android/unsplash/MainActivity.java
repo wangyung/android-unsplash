@@ -21,9 +21,6 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.transition.Transition;
 import android.util.Log;
 import android.util.Pair;
@@ -44,6 +41,9 @@ import com.example.android.unsplash.ui.grid.PhotoViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
@@ -74,8 +74,8 @@ public class MainActivity extends Activity {
         // Listener to reset shared element exit transition callbacks.
         getWindow().getSharedElementExitTransition().addListener(sharedExitListener);
 
-        grid = (RecyclerView) findViewById(R.id.image_grid);
-        empty = (ProgressBar) findViewById(android.R.id.empty);
+        grid = findViewById(R.id.image_grid);
+        empty = findViewById(android.R.id.empty);
 
         setupRecyclerView();
 
